@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppHomework.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="25">
+
+            <Label Text="Магазин товарів"
+                   FontSize="32"
+                   HorizontalOptions="Center" />
+
+            <HorizontalStackLayout Spacing="20" HorizontalOptions="Center">
+                <Button Text="Додати Товар" 
+                        Clicked="OnAddClicked" 
+                        BackgroundColor="Green" 
+                        TextColor="White"/>
+                
+                <Button Text="Видалити Останній" 
+                        Clicked="OnDeleteClicked" 
+                        BackgroundColor="Red" 
+                        TextColor="White"/>
+            </HorizontalStackLayout>
+
+            <CollectionView x:Name="myCollectionView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            
+                            <Frame BorderColor="Gray" CornerRadius="5" Padding="10">
+                                <Label Text="{Binding DisplayInfo}" FontSize="18" />
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
